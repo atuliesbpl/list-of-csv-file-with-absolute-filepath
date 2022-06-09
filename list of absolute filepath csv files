@@ -1,0 +1,20 @@
+#list of absolute filepath csv files
+def files_list(path):
+    """
+    List of absolute csv filepath of files
+    Parameters
+    ------
+    path: str
+        folder path
+    Returns
+    ------
+    list_of_files: list
+        List of absolute filepath of files
+    """
+    import os 
+    list_of_files = []
+    for (dirpath, dirnames, filenames) in os.walk(path):
+        for filename in filenames: 
+            if filename.endswith('.csv'):
+                list_of_files.append(os.path.join(dirpath,filename))   
+    return list_of_files
